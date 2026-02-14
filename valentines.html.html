@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anick (Cara) ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    position: relative;
+    top: 30%;
+    transform: translateY(-30%);
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: auto;
+    padding: 15px;
+}
+
+.buttons {
+    margin-top: 25px;
+    position: relative;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+}
+
+#yesBtn {
+    background-color: white;
+    color: #ff4e8a;
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+}
+
+#noBtn {
+    background-color: #ff4e8a;
+    color: white;
+    position: absolute;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
+
+@keyframes float {
+    0% { bottom: -10px; opacity: 1; }
+    100% { bottom: 100%; opacity: 0; transform: translateX(100px) rotate(45deg); }
+}
+
+#celebration {
+    display: none;
+    font-size: 2rem;
+    margin-top: 20px;
+    animation: pop 0.5s ease forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Anick (Cara) 💖</h1>
+    <p>
+        Cara… you stole my heart 😤  
+        And honestly? I’m not even mad about it.  
+        You’re my favorite notification, my daily smile,  
+        and the reason I check my phone every 2 seconds.
+    </p>
+
+    <h2>Will you be my Valentine? 😏</h2>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">YES 💕</button>
+        <button id="noBtn" onmouseover="moveButton()">NO 😅</button>
+    </div>
+
+    <div id="celebration">I KNEW IT!! 😂💘 I love youuuu Caraaa 💖🎉</div>
+</div>
+
+<script>
+function sayYes() {
+    document.getElementById("celebration").style.display = "block";
+}
+
+function moveButton() {
+    const button = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
